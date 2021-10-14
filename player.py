@@ -5,6 +5,8 @@ class Player:
         self.turn = None
         self.board = board
         self.ships_sunk = 0
+        self.locations_used = []
+        self.guessed = []
 
     def place_ships(self):
         print()
@@ -15,11 +17,14 @@ class Player:
             names.append(ship.name.lower())
         while names != []: 
             user_input = input(f'Which ship would you like to place? {names}: ').lower()
+            print()
             if user_input not in names:
                 print(f'Im sorry, {user_input} was not an option. Please try again')
                 print()
             for ship in self.fleet.ships:
                 if user_input == ship.name.lower():
+                    print('Be careful not to use the same Tile for multiple ships.')
+                    print(f'Ships Already Placed: {self.locations_used}')
                     self.board.show_board()
                     print(f'Your {ship.name} is {ship.space_size} spaces long. You must use {ship.space_size} touching tiles to place it.')
                     print()
@@ -32,6 +37,7 @@ class Player:
                         break
                     for location in locations:
                         ship.location.append(location)
+                    self.locations_used.append(f'{ship.name}:{locations}')
                     print(f'Your {ship.name} has been placed on tiles {locations}')
                     print()
                     names.remove(ship.name.lower())
@@ -81,4 +87,7 @@ class Player:
         for ship in other_player.fleet.ships:
             if ship.space_size == 0:
                 other_player.fleet.ships.remove(ship)
-                self.ships_sunk += 1                
+                self.ships_sunk += 1
+
+    def check_my_board(self):
+        pass
