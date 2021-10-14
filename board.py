@@ -10,3 +10,17 @@ class Board:
                                  ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10'] , 
                                  ['I1', 'I2', 'I3', 'I4', 'I5', 'I6', 'I7', 'I8', 'I9', 'I10'] ,
                                  ['J1', 'J2', 'J3', 'J4', 'J5', 'J6', 'J7', 'J8', 'J9', 'J10']]
+
+    def show_board(self):
+        print('     1     2     3     4     5     6     7     8     9     10  ')
+        print(f'A {self.rows_and_columns[0]}')
+        print(f'B {self.rows_and_columns[1]}')
+        print(f'C {self.rows_and_columns[2]}')
+        print(f'D {self.rows_and_columns[3]}')
+        print(f'E {self.rows_and_columns[4]}')
+        print(f'F {self.rows_and_columns[5]}')
+        print(f'G {self.rows_and_columns[6]}')
+        print(f'H {self.rows_and_columns[7]}')
+        print(f'I {self.rows_and_columns[8]}')
+        print(f'J {self.rows_and_columns[9]}')
+        
